@@ -143,11 +143,11 @@ class CreateFolders(Application):
                 result = uf.execute({"entity": {"type": entity_type, "id": entity_id}})
                 message.append(result)
 
-        except tank.TankError, tank_error:
+        except tank.TankError as tank_error:
             # tank errors are errors that are expected and intended for the user
             self.log_error(tank_error)
 
-        except Exception, error:
+        except Exception as error:
             # other errors are not expected and probably bugs - here it's useful with a callstack.
             self.log_exception("Error when unregiering folders: %s" % error)
 
